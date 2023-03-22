@@ -15,6 +15,7 @@ asar: true
 
 mac:
   artifactName: ${name}-${version}-mac-${arch}.${ext}
+  icon: 'electron/resource/icon.png'
   category: public.app-category.productivity
   darkModeSupport: true
   hardenedRuntime: true
@@ -39,6 +40,8 @@ dmg:
   sign: false
 
 win:
+  artifactName: ${name}-${version}-win-${arch}.${ext}
+  icon: 'electron/resource/icon.png'
   target:
     - target: nsis
       arch:
@@ -53,13 +56,13 @@ nsis:
   createDesktopShortcut: true
   createStartMenuShortcut: true
 
-
 linux:
-  artifactName: ${name}-${version}-${os}-${arch}.${ext}
+  artifactName: ${name}-${version}-linux-${arch}.${ext}
+  icon: 'electron/resource/icon.png'
   #executableName: electron-vue3-template-linux-desktop
+  #synopsis: A desktop for Electron App Template
   executableArgs:
     - --no-sandbox
-  #synopsis: A desktop for Electron App Template
   maintainer: admin@coreservice.io
   target:
     - deb
