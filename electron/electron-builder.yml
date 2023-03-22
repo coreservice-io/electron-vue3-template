@@ -1,0 +1,66 @@
+appId: electron.vue3.template
+productName: electron.vue3.template
+
+files:
+  - filter:
+    - electron/src/**/*
+    - vue/dist/**/*
+    - node_modules/**/*
+
+directories:
+  buildResources: electron/resource
+  output: electron/release
+
+asar: true
+
+mac:
+  artifactName: ${name}-${version}-mac-${arch}.${ext}
+  category: public.app-category.productivity
+  darkModeSupport: true
+  hardenedRuntime: true
+  gatekeeperAssess: false
+  target:
+    - dmg
+
+dmg:
+  iconSize: 160
+  iconTextSize: 12
+  window:
+    width: 660
+    height: 400
+  contents:
+    - x: 180
+      y: 170
+      type: file
+    - x: 480
+      y: 170
+      type: link
+      path: /Applications
+  sign: false
+
+win:
+  target:
+    - target: nsis
+      arch:
+        - ia32
+
+nsis:
+  oneClick: false
+  warningsAsErrors: false
+  perMachine: false
+  allowElevation: true
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+
+
+linux:
+  artifactName: ${name}-${version}-${os}-${arch}.${ext}
+  #executableName: electron-vue3-template-linux-desktop
+  executableArgs:
+    - --no-sandbox
+  #synopsis: A desktop for Electron App Template
+  maintainer: admin@coreservice.io
+  target:
+    - deb
+    - rpm
