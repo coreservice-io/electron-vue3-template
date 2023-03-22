@@ -15,13 +15,13 @@ const createWindow = () => {
   // and load the index.html of the app.
   mainWindow.loadURL(isDev
     ? 'http://127.0.0.1:5173'
-    : `file://${path.join(__dirname, '..', '..', 'dist', 'index.html')}`);
+    : `file://${path.join(__dirname, '..', '..', 'vue', 'dist', 'index.html')}`);
 
   // Open the DevTools.
   mainWindow.webContents.openDevTools();
 };
 
-async function run () {
+async function run() {
   // This method will be called when Electron has finished
   // initialization and is ready to create browser windows.
   // Some APIs can only be used after this event occurs.

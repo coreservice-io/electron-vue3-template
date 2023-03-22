@@ -6,9 +6,9 @@
   "main": "electron/src/main.js",
   
   "scripts": {
-    "dev": "vite --config vue/vite.config.js",
-    "build": "vite build --config vue/vite.config.js",
-    "preview": "vite preview --config vue/vite.config.js",
+    "vue:dev": "vite --config vue/vite.config.js",
+    "vue:build": "vite build --config vue/vite.config.js",
+    "vue:preview": "vite preview --config vue/vite.config.js",
     "electron:start": "electron . --config electron/electron-builder.yml",
     "electron:build:mac": "electron-builder -m --config electron/electron-builder.yml",     
     "electron:build:win": "electron-builder -w --config electron/electron-builder.yml",
