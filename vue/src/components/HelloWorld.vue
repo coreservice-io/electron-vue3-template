@@ -1,41 +1,17 @@
 <script setup>
-import { ref } from 'vue'
-
-defineProps({
-  msg: String,
-})
-
-const count = ref(0)
+import * as outline from "@heroicons/vue/24/outline";
 </script>
-
 <template>
-  <h1>{{ msg }}</h1>
-
-  <div class="card">
-    <button type="button" @click="count++">count is {{ count }}</button>
-    <p>
-      Edit
-      <code>components/HelloWorld.vue</code> to test HMR
-    </p>
-  </div>
-
-  <p>~!!!!^^Hello world</p>
-  <p>
-    Check out
-    <a href="https://vuejs.org/guide/quick-start.html#local" target="_blank"
-      >create-vue</a
-    >, the official Vue + Vite starter
-  </p>
-  <p>
-    Install
-    <a href="https://github.com/vuejs/language-tools" target="_blank">Volar</a>
-    in your IDE for a better DX
-  </p>
-  <p class="read-the-docs">Click on the Vite and Vue logos to learn more</p>
+    <div class="space-y-8 divide-y divide-gray-200 divide-gray-200">
+        <div>
+            <h1 class="text-2xl leading-6">Icon exmaple</h1>
+            <p class="mt-3">icons of outline style</p>
+        </div>
+        <div class="grid md:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 grid-cols-2 gap-10 pt-8">
+            <div class="col-span-1 card click py-8" v-for="(key, value) in outline">
+                <component :is="key" class="h-5 w-5 m-auto" />
+                <div class="mt-1 text-xs text-center">{{ value }}</div>
+            </div>
+        </div>
+    </div>
 </template>
-
-<style scoped>
-.read-the-docs {
-  color: #888;
-}
-</style>
