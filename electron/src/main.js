@@ -1,8 +1,15 @@
 const { app, BrowserWindow } = require('electron');
+const serve = require('electron-serve')
 const isDev = require('electron-is-dev');
 const path = require('path');
+const logger = require('./common/logger')
 
-const createWindow = () => {
+let loadURL
+if (!isDev) {
+  loadURL = serve({ scheme: 'webui', directory: path.join(__dirname, '..', '..', 'vue', 'dist') });
+}
+
+const createWindow = async () => {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
     width: 800,
@@ -12,10 +19,17 @@ const createWindow = () => {
     },
   });
 
-  // and load the index.html of the app.
-  mainWindow.loadURL(isDev
-    ? 'http://127.0.0.1:5173'
-    : `file://${path.join(__dirname, '..', '..', 'vue', 'dist', 'index.html')}`);
+  try {
+    // and load the index.html of the app.
+    if (isDev) {
+      mainWindow.loadURL('http://127.0.0.1:5173');
+    } else {
+      const url = new URL('/', 'webui://-');
+      mainWindow.loadURL(url.toString());
+    }
+  } catch(ex) {
+    logger.error(ex);
+  }
 
   // Open the DevTools.
   mainWindow.webContents.openDevTools();
@@ -31,7 +45,7 @@ async function run() {
     app.exit(1);
   }
 
-  createWindow();
+  await createWindow();
 
   app.on('activate', () => {
     // On OS X it's common to re-create a window in the app when the
