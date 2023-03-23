@@ -9,7 +9,7 @@ files:
 
 directories:
   buildResources: electron/resource
-  output: electron/release
+  output: release
 
 asar: true
 
