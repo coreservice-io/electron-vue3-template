@@ -11,7 +11,7 @@ directories:
   buildResources: electron/resource
   output: release
 
-asar: true
+asar: false
 
 mac:
   artifactName: ${name}-${version}-mac-${arch}.${ext}
