@@ -23,6 +23,6 @@ pnpm-debug.log*
 bin/*
 .vscode
 
-electron/release
+release
 
 vue/dist
