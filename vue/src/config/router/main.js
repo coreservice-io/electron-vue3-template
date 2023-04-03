@@ -1,8 +1,8 @@
 export default [
   {
     path: "/",
-    name: "home",
-    component: () => import("../../pages/main/welcome/WelcomePage.vue"),
+    name: "desktop",
+    component: () => import("../../pages/desktop/DesktopPage.vue"),
   },
   {
     path: "/:pathMatch(.*)*",
